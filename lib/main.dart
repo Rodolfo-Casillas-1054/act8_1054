@@ -1,41 +1,57 @@
 import 'package:flutter/material.dart';
+import 'download_button.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(const DownloadApp());
+}
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  // This widget is the root of your application.
+class DownloadApp extends StatelessWidget {
+  const DownloadApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Application name
-      title: 'Flutter Hello World',
-      // Application theme data, you can set the colors for the application as
-      // you want
+      title: 'Botones de Descarga',
       theme: ThemeData(
-        // useMaterial3: false,
-        primarySwatch: Colors.blue,
+        useMaterial3: true,
+        scaffoldBackgroundColor: const Color(0xFFF9F9F9),
       ),
-      // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const DownloadPage(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({super.key, required this.title});  
+class DownloadPage extends StatelessWidget {
+  const DownloadPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
-      ),
       body: Center(
-        child: Text(
-          'Hello, World!',
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            DownloadButton(
+              color: Color(0xff002aff),
+              downloadedColor: Color(0xff919fcd),
+            ),
+            SizedBox(height: 16),
+            DownloadButton(
+              color: Color(0xffffab00),
+              downloadedColor: Color(0xffd9b66e),
+            ),
+            SizedBox(height: 16),
+            DownloadButton(
+              color: Color(0xff42de17),
+              downloadedColor: Color(0xff90dc66),
+            ),
+            SizedBox(height: 16),
+            DownloadButton(
+              color: Color(0xffe81a08),
+              downloadedColor: Color(0xfff18884),
+            ),
+          ],
         ),
       ),
     );
